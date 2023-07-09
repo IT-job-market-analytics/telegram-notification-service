@@ -1,0 +1,13 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: analytics_service
+    password: password
+
+bot:
+  token: 6144630532:AAFdJTcUNaVwQEWueQW-Nz7Y5e2GYcxb89M
+  name: testmarkwerthhtu_bot
+
+rabbitmq:
+  queue: telegram-notifications-queue
