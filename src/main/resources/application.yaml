@@ -1,13 +1,6 @@
 bot:
-  token: 6144630532:AAFdJTcUNaVwQEWueQW-Nz7Y5e2GYcxb89M
   name: testmarkwerthhtu_bot
 
 spring:
   rabbitmq:
-    host: 217.25.88.12
     port: 5672
-    username: analytics_service
-    password: password
-
-rabbitmq:
-  queue: telegram-notifications-queue
