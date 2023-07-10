@@ -8,7 +8,7 @@ Authorization: Basic YW5hbHl0aWNzX3NlcnZpY2U6cGFzc3dvcmQ=
   },
   "routing_key": "telegram-notifications-queue",
 
-  "payload":  "{\"idChat\":1519650322, \"text\":\"https://hh.ru/applicant/resumes/view?resume=f069def5ff0bcc25e20039ed1f307157443935\"}",
+  "payload":  "{\"chat_id\":-997642735, \"message\":\"Hi, new vacancy for you!\\n\\nhttps://hh.ru/applicant/resumes/view?resume=f069def5ff0bcc25e20039ed1f307157443935\"}",
 
   "payload_encoding": "string"
 }

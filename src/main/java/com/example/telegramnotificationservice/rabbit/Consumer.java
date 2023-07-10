@@ -1,7 +1,7 @@
 package com.example.telegramnotificationservice.rabbit;
 
 import com.example.telegramnotificationservice.bot.TelegramBot;
-import com.example.telegramnotificationservice.dto.MessageDTO;
+import com.example.telegramnotificationservice.dto.TelegramNotificationTaskDTO;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ public class Consumer {
     }
 
     @RabbitListener(queues = {"${rabbitmq.queue}"})
-    public void consume(MessageDTO message) {
-        telegramBot.sendMessage(message.getIdChat(), message.getText());
+    public void consume(TelegramNotificationTaskDTO message) {
+        telegramBot.sendMessage(message.getChatId(), message.getMessage());
     }
 }
