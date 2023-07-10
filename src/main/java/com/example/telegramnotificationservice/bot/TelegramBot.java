@@ -14,9 +14,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Value("${bot.name}")
     private String name;
 
-    private final static String TEST_OUTPUT = "Ваши вакансии: ";
-    private final static String TEST_CRITERION = "Tecт. Java+стажировка: ";
-
     @Override
     public void onUpdateReceived(Update update) {
         // do nothing yet
