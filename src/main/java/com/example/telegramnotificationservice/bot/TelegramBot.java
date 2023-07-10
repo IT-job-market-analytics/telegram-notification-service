@@ -21,16 +21,12 @@ public class TelegramBot extends TelegramLongPollingBot {
         // do nothing yet
     }
 
-    public void sendMessage(long chatId, String text) {
+    public void sendMessage(long chatId, String text) throws TelegramApiException {
         SendMessage command = new SendMessage();
         command.setChatId(chatId);
         command.setText(text);
 
-        try {
-            this.execute(command);
-        } catch (TelegramApiException e) {
-            throw new RuntimeException(e);
-        }
+        this.execute(command);
     }
 
     @Override
