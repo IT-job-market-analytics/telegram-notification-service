@@ -9,10 +9,12 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
-    @Value("${bot.token}")
-    private String token;
     @Value("${bot.name}")
     private String name;
+
+    public TelegramBot(@Value("${bot.token}") String botToken) {
+        super(botToken);
+    }
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -29,11 +31,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @Override
-    public String getBotToken() {
-        return token;
     }
 
     @Override
