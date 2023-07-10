@@ -1,6 +1,5 @@
 package com.example.telegramnotificationservice.bot;
 
-import com.example.telegramnotificationservice.rabbit.RabbitMQConsumer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -18,27 +17,20 @@ public class TelegramBot extends TelegramLongPollingBot {
     private final static String TEST_OUTPUT = "Ваши вакансии: ";
     private final static String TEST_CRITERION = "Tecт. Java+стажировка: ";
 
+    @Override
     public void onUpdateReceived(Update update) {
+        // do nothing yet
+    }
 
-        String command = update.getMessage().getText();
+    public void sendMessage(long chatId, String text) {
+        SendMessage command = new SendMessage();
+        command.setChatId(chatId);
+        command.setText(text);
 
-        if (command.equals("/start")) {
-            String message_your_links = TEST_OUTPUT;
-            String message_criterion = TEST_CRITERION;
-            SendMessage response = new SendMessage();
-            SendMessage responseTest = new SendMessage();
-            response.setChatId(update.getMessage().getChatId().toString());
-            responseTest.setChatId(update.getMessage().getChatId().toString());
-            response.setText(message_your_links);
-            responseTest.setText(message_criterion);
-
-            try {
-                this.execute(response);
-                this.execute(responseTest);
-                SendMessageBot.sendToTelegram(RabbitMQConsumer.getId(), token, RabbitMQConsumer.getText());
-            } catch (TelegramApiException e) {
-                throw new RuntimeException(e);
-            }
+        try {
+            this.execute(command);
+        } catch (TelegramApiException e) {
+            throw new RuntimeException(e);
         }
     }
 

@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class MessageDTO {
-    private int idChat;
+    private long idChat;
     private String text;
 }
