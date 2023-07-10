@@ -6,12 +6,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RabbitMQConsumer {
-
-
+public class Consumer {
     private final TelegramBot telegramBot;
 
-    public RabbitMQConsumer(TelegramBot telegramBot) {
+    public Consumer(TelegramBot telegramBot) {
         this.telegramBot = telegramBot;
     }
 
