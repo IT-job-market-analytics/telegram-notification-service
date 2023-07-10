@@ -1,0 +1,6 @@
+bot:
+  name: testmarkwerthhtu_bot
+
+spring:
+  rabbitmq:
+    port: 5672
