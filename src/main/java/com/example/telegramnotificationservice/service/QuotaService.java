@@ -14,14 +14,13 @@ public class QuotaService {
     @Value("${quota.url}")
     private String url;
 
+    private final RestTemplate restTemplate = new RestTemplate();
+
     public void requestQuota() {
         log.trace("Requesting to rate limiter");
+
         long nanoTime = System.nanoTime();
-
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response
-                = restTemplate.getForEntity(url, String.class);
-
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         long elapsedTimeMs = (System.nanoTime() - nanoTime) / 1000000;
 
         log.debug("Quota retrieved in " + elapsedTimeMs + " ms");
