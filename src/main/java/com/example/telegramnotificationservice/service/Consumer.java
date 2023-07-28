@@ -1,4 +1,4 @@
-package com.example.telegramnotificationservice.rabbit;
+package com.example.telegramnotificationservice.service;
 
 import com.example.telegramnotificationservice.bot.TelegramBot;
 import com.example.telegramnotificationservice.dto.TelegramNotificationTaskDTO;

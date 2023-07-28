@@ -11,3 +11,6 @@ spring:
 
 rabbitmq:
   queue: telegram-notifications-queue
+
+quota:
+  url: http://217.25.88.12:8081/quota/telegram-api
