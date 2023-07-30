@@ -5,12 +5,8 @@ bot:
 spring:
   rabbitmq:
     host: 217.25.88.12
-    port: 5672
     username: analytics_service
     password: password
-
-rabbitmq:
-  queue: telegram-notifications-queue
 
 quota:
   url: http://217.25.88.12:8081/quota/telegram-api
