@@ -1,0 +1,15 @@
+bot:
+  token: 6307380627:AAFslHm_kGnvl_ptxwYW5YFJLVf2PgcG-E4
+  name: superTestRoman_bot
+
+spring:
+  rabbitmq:
+    host: localhost
+    username: analytics_service
+    password: password
+
+quota:
+  url: http://localhost:8081/quota/telegram-api
+
+server:
+  port: 8085

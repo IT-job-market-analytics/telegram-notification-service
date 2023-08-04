@@ -26,7 +26,20 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        // do nothing yet
+
+        long chatId = update.getMessage().getChatId();
+        String messageText = "Ваш chat id = `"
+                + chatId
+                + "`\nДля получения уведомлений введите его в форму на странице профиля на сайте http://it-jobs.zhukovsd.com/";
+        SendMessage message = new SendMessage();
+        message.enableMarkdown(true);
+        message.setChatId(chatId);
+        message.setText(messageText);
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sendMessage(long chatId, String text) throws TelegramApiException {
