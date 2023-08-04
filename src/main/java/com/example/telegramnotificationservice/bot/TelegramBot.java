@@ -16,6 +16,9 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Value("${bot.name}")
     private String name;
 
+    @Value("${bot.site-url}")
+    private String siteUrl;
+
     private final QuotaService quotaService;
 
 
@@ -30,7 +33,9 @@ public class TelegramBot extends TelegramLongPollingBot {
         long chatId = update.getMessage().getChatId();
         String messageText = "Ваш chat id = `"
                 + chatId
-                + "`\nДля получения уведомлений введите его в форму на странице профиля на сайте http://it-jobs.zhukovsd.com/";
+                + "`\nДля получения уведомлений введите его в форму на странице профиля на сайте " +
+                siteUrl;
+
         SendMessage message = new SendMessage();
         message.enableMarkdown(true);
         message.setChatId(chatId);
