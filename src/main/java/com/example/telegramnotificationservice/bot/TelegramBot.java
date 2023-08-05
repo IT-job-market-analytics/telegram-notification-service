@@ -16,6 +16,9 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Value("${bot.name}")
     private String name;
 
+    @Value("${bot.site-url}")
+    private String siteUrl;
+
     private final QuotaService quotaService;
 
 
@@ -26,7 +29,22 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        // do nothing yet
+
+        long chatId = update.getMessage().getChatId();
+        String messageText = "Ваш chat id = `"
+                + chatId
+                + "`\nДля получения уведомлений введите его в форму на странице профиля на сайте " +
+                siteUrl;
+
+        SendMessage message = new SendMessage();
+        message.enableMarkdown(true);
+        message.setChatId(chatId);
+        message.setText(messageText);
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sendMessage(long chatId, String text) throws TelegramApiException {
