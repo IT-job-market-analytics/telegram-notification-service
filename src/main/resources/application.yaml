@@ -1,6 +1,6 @@
 bot:
   name: testmarkwerthhtu_bot
-  site-url: localhost:8082
+  site-url: http://localhost:8082/
 
 spring:
   rabbitmq:
