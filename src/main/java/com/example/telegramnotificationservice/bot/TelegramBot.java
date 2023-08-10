@@ -53,6 +53,8 @@ public class TelegramBot extends TelegramLongPollingBot {
             log.debug("Has quota");
 
             SendMessage command = new SendMessage();
+            command.enableHtml(true);
+            command.disableWebPagePreview();
             command.setChatId(chatId);
             command.setText(text);
 
