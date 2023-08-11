@@ -29,6 +29,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
+        log.info("Received message from user");
 
         long chatId = update.getMessage().getChatId();
         String messageText = "Ваш chat id = `"
